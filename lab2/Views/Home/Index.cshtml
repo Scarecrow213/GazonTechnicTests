@@ -1,0 +1,70 @@
+﻿@model lab2.Models.TechnicListViewModel
+@{
+    ViewBag.Title = "Склад";
+}
+<div>
+    <h2>Список склада</h2>
+    <p>
+        @Html.ActionLink("Добавить технику", "CreateTechnic")
+    </p>
+    <p>
+        @Html.ActionLink("Добавить склад", "CreateStorage")
+    </p>
+    <p>
+        @Html.ActionLink("Удалить склад", "Delete_storage")
+    </p>
+
+    <form method="get">
+        <div class="form-inline">
+            <label class="control-label"> Склад: </label>
+            @Html.DropDownList("shop", Model.Storages as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+           
+            <input type="submit" value="Фильтр" class="btn btn-default" />
+        </div>
+    </form>
+
+    <table>
+        <tr class="header">
+            <td><p>Изображение&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+            <td><p>Название&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+			<td><p>Цена&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+			<td><p>Отработанные&nbsp;часы&nbsp;&nbsp;&nbsp;</p></td>
+			<td><p>Планируемые&nbsp;часы&nbsp;&nbsp;&nbsp;</p></td>
+            <td><p>Склад&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+			<td><p>%&nbsp;</p></td>
+            <td></td>
+        </tr>
+        @foreach (var item in Model.Technics)
+        {
+            <tr>
+                <td>
+                    <img src="/@item.img" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+				 <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+				<td>
+                    @Html.DisplayFor(modelItem => item.Hours)
+                </td>
+				<td>
+                    @Html.DisplayFor(modelItem => item.PlannedHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Storage.NameStorage)
+                </td>
+				<td>
+                    @Html.DisplayFor(modelItem => item.Percentage)
+                </td>
+                <td>
+                    @Html.ActionLink("Просмотр", "TechnicView", new { id = item.Id }) |
+                    @Html.ActionLink("Редактировать", "EditTechnic", new { id = item.Id }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

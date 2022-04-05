@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Удалить склад";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model lab2.Models.Storage
+<h2>Удаление склада</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Склад <br />
+        @Html.DropDownListFor(model => model.StorageId, ViewBag.Shops as SelectList)
+    </p>
+
+    <input type="submit" value="Удалить " />
+}
+<div>
+    @Html.ActionLink("К списку складов", "Index")
+</div>

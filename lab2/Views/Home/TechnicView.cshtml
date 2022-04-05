@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model lab2.Models.Technic
+<h2>Техника</h2>
+<img src="/@Model.img" />
+<div class="display-label"><b>Название</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Name)
+</div>
+<div class="display-label"><b>Стоимость</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Price)
+</div>
+<div class="display-label"><b>Отработанные часы</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Hours)
+</div>
+<div class="display-label"><b>Планируемые часы</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.PlannedHours)
+</div>
+<div class="display-label"><b>Процент отработанных часов от плана, %</b></div>
+<div class="display-field">
+    @Html.DisplayFor(model => model.Percentage)
+</div>

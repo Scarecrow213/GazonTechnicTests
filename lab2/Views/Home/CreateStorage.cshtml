@@ -1,0 +1,20 @@
+﻿@model lab2.Models.Storage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Новый склад</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.NameStorage, "Склад")
+    <br />
+    @Html.EditorFor(model => model.NameStorage)
+    <br />
+    <br />
+
+    <input type="submit" value="Добавить" />
+}
+<div>
+    @Html.ActionLink("К списку складов", "Index")
+</div>

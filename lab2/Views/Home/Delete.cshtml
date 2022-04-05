@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model lab2.Models.Technic
+<h2>Удаление техники</h2>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>Склад</dt>
+    <dd>
+        @ViewBag.Storage
+    </dd>
+
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Price)
+    </dd>
+
+	<dt>Отработанные часы</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Hours)
+    </dd>
+
+	<dt>Запланированные часы</dt>
+    <dd>
+        @Html.DisplayFor(model => model.PlannedHours)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+<input type="submit" value="Удалить" />
+}

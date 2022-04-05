@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Добавление комплектующих";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model lab2.Models.Technic
+
+<h2>Добавление техники</h2>
+
+@using (Html.BeginForm("CreateTechnic", "Home", FormMethod.Post))
+{
+<fieldset>
+    <legend>Газонокосящая техника</legend>
+
+    <p>
+        Название техники <br />
+        @Html.EditorFor(model => model.Name)
+    </p>
+    <p>
+        Склад <br />
+        @Html.DropDownListFor(model => model.StorageId, ViewBag.Shops as SelectList)
+    </p> 
+    <p>
+        Цена <br />
+        @Html.EditorFor(model => model.Price)
+    </p>
+	<p>
+        Отработанные часы <br />
+        @Html.EditorFor(model => model.Hours)
+    </p>
+	<p>
+        Планируемые часы <br />
+        @Html.EditorFor(model => model.PlannedHours)
+    </p>
+    <p>
+        Картинка <br />
+        @Html.EditorFor(model => model.img)
+    </p>
+    <p>
+        <input type="submit" value="Добавить технику" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("К списку складов", "Index")
+</div>
